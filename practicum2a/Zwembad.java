@@ -40,9 +40,11 @@ public class Zwembad {
     }
 
     public double inhoud(){
+
         return lengte * breedte * diepte;
     }
     public String toString(){
+
         return(" Breedte is: " + breedte + " Lengte is: " + lengte + " Diepte is: " + diepte);
     }
 
