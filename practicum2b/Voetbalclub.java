@@ -7,10 +7,18 @@ public class Voetbalclub {
     private int aantalVerloren;
 
     public Voetbalclub(String clubnaam){
-        this.clubnaam = clubnaam;
+        if(clubnaam == "" || clubnaam == null) {
+           this.clubnaam = "FC";
+        }
+        else {
+            this.clubnaam = clubnaam;
+        }
     }
 
+    public String getClubnaam(){
+        return this.clubnaam;
 
+    }
     public int aantalPunten(){
         int punten = aantalGewonnen * 3;
         return punten = aantalGelijk + punten;
@@ -39,6 +47,9 @@ public class Voetbalclub {
             aantalGelijk = aantalGelijk + 1;
         if (ch == 'v')
             aantalVerloren = aantalVerloren + 1;
+        else{
+            return;
+        }
     }
 
 
