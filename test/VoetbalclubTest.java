@@ -21,18 +21,30 @@ public class VoetbalclubTest {
     @Test
     void verwerkResultaat() {
         Voetbalclub voetbalclub = new Voetbalclub("test");
-        voetbalclub.verwerkResultaat('f');
-        assertEquals(0, voetbalclub.aantalGespeeld());
-    }
+        voetbalclub.verwerkResultaat('w');
+        voetbalclub.verwerkResultaat('w');
 
+        assertEquals(2, voetbalclub.aantalGespeeld());
+    }
+    @Test
+    void verwerkPunten() {
+        Voetbalclub voetbalclub = new Voetbalclub("test");
+        voetbalclub.verwerkResultaat('v');
+        voetbalclub.verwerkResultaat('w');
+        voetbalclub.verwerkResultaat('g');
+
+        assertEquals(4, voetbalclub.aantalPunten());
+    }
     @Test
     public void testToString() {
         Voetbalclub feij = new Voetbalclub("Feijenoord");
-        String expected = "Feijenoord    4 3 1 0 10";
+        String expected = "Feijenoord    5 3 1 1 10";
         feij.verwerkResultaat('w');
         feij.verwerkResultaat('w');
         feij.verwerkResultaat('w');
         feij.verwerkResultaat('g');
+        feij.verwerkResultaat('v');
+
         assertEquals(expected, feij.toString());
     }
 
